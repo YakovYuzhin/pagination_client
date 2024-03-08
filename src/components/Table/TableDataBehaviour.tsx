@@ -17,7 +17,7 @@ const TableDataBehaviour = () => {
       });
   }, []);
 
-  return <TableTamplate data={posts} />;
+  return <TableTamplate posts={posts} />;
 };
 
 export default TableDataBehaviour;
