@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import styles from "./Table.module.css";
+
 import { IPost } from "../../types/IPost";
 
 interface IProps {
@@ -29,7 +31,7 @@ const TableTamplate = (props: IProps) => {
         />
         <List>
           {props.posts.map((post) => (
-            <Link to={`${post.id}`} key={post.id}>
+            <Link to={`${post.id}`} key={post.id} className={styles.postLink}>
               <List>
                 <ListItem>
                   <ListItemText>{`userId: ${post.userId}`}</ListItemText>
