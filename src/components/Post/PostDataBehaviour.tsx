@@ -1,12 +1,12 @@
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
+import { LinearProgress } from '@mui/material';
 import PostTemplate from "./PostTemplate";
 import Error404 from "../Error404/Error404";
 
 import { IPost } from "../../types/IPost";
-import { LinearProgress } from '@mui/material';
 
 const PostDataBehaviour = () => {
   const param = useParams<{ postID: string }>();
@@ -23,16 +23,15 @@ const PostDataBehaviour = () => {
       })
       .catch((error) => {
         console.error("Error:", error);
+        setLoading(false);
       });
-  }, []);
+  }, [param]);
 
   return loading 
-  ? <LinearProgress />
-  : postOnPage 
-    ? <PostTemplate postOnPage={postOnPage} /> 
-    : <Error404 />;
-  
-  
+    ? <LinearProgress />
+    : postOnPage 
+        ? <PostTemplate postOnPage={postOnPage} />
+        : <Error404 />
 };
 
 export default PostDataBehaviour;
