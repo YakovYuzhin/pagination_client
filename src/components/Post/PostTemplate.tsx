@@ -1,29 +1,26 @@
-import { List, ListItem, ListItemText, Divider } from "@mui/material";
+import { List, ListItem, ListItemText } from "@mui/material";
 
-import { IPost } from '../../types/IPost';
-
+import { IPost } from "../../types/IPost";
 
 interface IProps {
-    post: IPost;
-  }
+  postOnPage: IPost;
+}
 
-
-const PostTemplate = (props: IProps) => {
+const PostTemplate = (porps: IProps) => {
   return (
     <List>
       <ListItem>
-        <ListItemText>{`userId: ${props.post.userId}`}</ListItemText>
+        <ListItemText>{`userId: ${porps.postOnPage.userId}`}</ListItemText>
       </ListItem>
       <ListItem>
-        <ListItemText>{`id: ${props.post.id}`}</ListItemText>
+        <ListItemText>{`id: ${porps.postOnPage.id}`}</ListItemText>
       </ListItem>
       <ListItem>
-        <ListItemText>{`title: ${props.post.title}`}</ListItemText>
+        <ListItemText>{`title: ${porps.postOnPage.title}`}</ListItemText>
       </ListItem>
       <ListItem>
-        <ListItemText>{`body: ${props.post.body}`}</ListItemText>
+        <ListItemText>{`body: ${porps.postOnPage.body}`}</ListItemText>
       </ListItem>
-      <Divider component="li" />
     </List>
   );
 };

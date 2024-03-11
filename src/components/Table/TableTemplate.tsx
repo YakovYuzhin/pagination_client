@@ -1,7 +1,15 @@
-import { IPost } from "../../types/IPost";
-import { Container, List, Pagination, Stack } from "@mui/material";
+import {
+  Container,
+  List,
+  Pagination,
+  Stack,
+  ListItem,
+  ListItemText,
+  Divider,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
-import PostTemplate from "../Post/PostTemplate";
+import { IPost } from "../../types/IPost";
 
 interface IProps {
   posts: IPost[];
@@ -21,7 +29,23 @@ const TableTamplate = (props: IProps) => {
         />
         <List>
           {props.posts.map((post) => (
-            <PostTemplate key={post.id} post={post} />
+            <Link to={`${post.id}`} key={post.id}>
+              <List>
+                <ListItem>
+                  <ListItemText>{`userId: ${post.userId}`}</ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemText>{`id: ${post.id}`}</ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemText>{`title: ${post.title}`}</ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemText>{`body: ${post.body}`}</ListItemText>
+                </ListItem>
+                <Divider component="li" />
+              </List>
+            </Link>
           ))}
         </List>
       </Stack>
